@@ -14,9 +14,9 @@ export function Product({ product }: any) {
     addToCart(object);
   };
 
-  if (!isSuccess) {
-    toast.success("Product Add to Cart Successfully");
-  }
+  // if (!isSuccess) {
+  //   toast.success("Product Add to Cart Successfully");
+  // }
 
   return (
     <>
