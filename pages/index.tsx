@@ -44,7 +44,9 @@ type Data = {
 export const getServerSideProps: GetServerSideProps<{
   data: Data;
 }> = async () => {
-  const res = await fetch("http://localhost:5000/products?limit=9");
+  const res = await fetch(
+    "https://taskserver-jgk8.onrender.com/products?limit=9"
+  );
   const data: Data = await res.json();
 
   return {

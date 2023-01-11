@@ -13,7 +13,7 @@ export interface Contact {
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000",
+    baseUrl: "https://taskserver-jgk8.onrender.com",
   }),
   tagTypes: ["product"],
   endpoints: (builder) => ({
