@@ -13,7 +13,7 @@ export interface Contact {
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://taskserver-jgk8.onrender.com",
+    baseUrl: "http://localhost:5000",
   }),
   tagTypes: ["product"],
   endpoints: (builder) => ({
@@ -32,8 +32,12 @@ export const apiSlice = createApi({
     getCart: builder.query<Contact[], void>({
       query: () => ({ url: "/cart" }),
     }),
+
+    getAllProduct: builder.query<Contact[], void>({
+      query: () => ({ url: "/products" }),
+    }),
   }),
 });
 
-export const { useContactQuery, useAddToCartMutation, useGetCartQuery } =
+export const { useContactQuery, useAddToCartMutation, useGetCartQuery,useGetAllProductQuery } =
   apiSlice;

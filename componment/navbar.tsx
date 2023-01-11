@@ -96,8 +96,12 @@ function Navbar() {
                 <Button>Home</Button>
               </Link>
 
-              <Link href={"/"}>
+              <Link href={"/cart"}>
                 <Button>Cart</Button>
+              </Link>
+
+              <Link href={"/allproduct"}>
+                <Button>All Product</Button>
               </Link>
             </Menu>
           </Box>
@@ -135,6 +139,15 @@ function Navbar() {
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 Cart
+              </Button>
+            </Link>
+
+            <Link href="/allproduct">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                All Product
               </Button>
             </Link>
           </Box>

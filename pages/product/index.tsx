@@ -1,52 +1,62 @@
 import Link from "next/link";
 import { useAddToCartMutation } from "../../app/api/apiSlice";
-import { toast } from "react-hot-toast";
+import Grid from "@mui/material/Grid";
+import { CardMedia, ListItem, Typography } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+
 export function Product({ product }: any) {
   const [addToCart, { isLoading, isError, isSuccess }] = useAddToCartMutation();
 
-  const clickHanld = () => {
-    const object = {
-      name: product.name,
-      image: product.image,
-      price: product.price,
-    };
-
-    addToCart(object);
+  const handleAddToCart = () => {
+    addToCart(product);
   };
 
-  // if (!isSuccess) {
-  //   toast.success("Product Add to Cart Successfully");
-  // }
+  console.log(product);
 
   return (
     <>
-      <div className="shadow-lg relative rounded-3xl border p-3 flex flex-col text-indigo-900">
-        <Link href={`/product/${product._id}`}>
-          <div className="h-52 w-52 mx-auto">
-            <img src={product.image} alt={product.image} />
-          </div>
-          <h1 className="font-bold text-center">{product.name}</h1>
-          <p className="text-center font-semibold mb-3">
-            Offer Price: {product.offer_price}
-          </p>
-          <div className=" flex-1">
-            <ul className="space-y-2">
-              <li className="text-sm ">Price: {product.price}</li>
-            </ul>
-          </div>
-        </Link>
-
-        <div>
-          <div className="flex gap-2 mt-5">
-            <button
-              onClick={clickHanld}
-              className="bg-indigo-500 rounded-full py-1 px-2 flex-1 text-white text-bold"
+      <Grid sx={{ my: "25px" }} item xs={12} sm={4} md={4}>
+        <CardMedia sx={{ maxWidth: 345 }}>
+          <CardMedia
+            sx={{
+              wight: "200px",
+              height: "200px",
+              objectFit: "cover",
+              textAlign: "center",
+              alignItems: "center",
+              mx: "auto",
+            }}
+            component="img"
+            alt="green iguana"
+            image={product?.images[1]}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {product?.title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {product?.description}
+            </Typography>
+            <Typography
+              sx={{ color: "green", mt: "5px", hover: "red" }}
+              variant="h5"
             >
-              Add to cart
-            </button>
-          </div>
-        </div>
-      </div>
+              Price: ${product?.price}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Link href={`/product/${product._id}`}>
+              <Button size="small">Details</Button>
+            </Link>
+            <Button onClick={handleAddToCart} size="small">
+              Add To Cart
+            </Button>
+          </CardActions>
+        </CardMedia>
+      </Grid>
     </>
   );
 }
