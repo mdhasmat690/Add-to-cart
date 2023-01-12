@@ -1,4 +1,4 @@
-import { Product } from "./product";
+import Product from "./product";
 import Banner from "../componment/banner";
 import { GetServerSideProps } from "next";
 import AllProductBanner from "../componment/allproductBanner";

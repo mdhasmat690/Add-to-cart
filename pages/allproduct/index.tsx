@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { Container } from "@mui/system";
 import { useGetAllProductQuery } from "../../app/api/apiSlice";
-import { Product } from "../product";
+import Product from "../product";
 
 const AllProduct = () => {
   const { data } = useGetAllProductQuery();

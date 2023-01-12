@@ -20,7 +20,7 @@ import Swal from "sweetalert2";
 
 type Anchor = "top" | "left" | "bottom" | "right";
 
-export function Product({ product }: any) {
+function Product({ product }: any) {
   const [addToCart, { isLoading, isError, isSuccess }] = useAddToCartMutation();
 
   const dispatch = useAppDispatch();
@@ -210,3 +210,5 @@ export function Product({ product }: any) {
     </>
   );
 }
+
+export default Product;
