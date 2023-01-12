@@ -14,7 +14,20 @@ const Cart = () => {
   console.log(data);
 
   if (!data) {
-    return <>Loading...</>;
+    return (
+      <div
+        style={{
+          width: "200px",
+          height: "400px",
+          display: "flex",
+          textAlign: "center",
+          justifyContent: "center",
+          marginTop: "50px",
+        }}
+      >
+        isLoading...
+      </div>
+    );
   }
 
   return (
@@ -47,6 +60,12 @@ const Cart = () => {
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     {product?.description}
+                  </Typography>
+                  <Typography
+                    sx={{ color: "red", mt: "5px", hover: "red" }}
+                    variant="h5"
+                  >
+                    Item: {product?.quantity}
                   </Typography>
                   <Typography
                     sx={{ color: "green", mt: "5px", hover: "red" }}

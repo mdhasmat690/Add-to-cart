@@ -20,7 +20,20 @@ function SingleProduct() {
   console.log(data);
 
   if (!data) {
-    return <>Loading...</>;
+    return (
+      <div
+        style={{
+          width: "200px",
+          height: "400px",
+          display: "flex",
+          textAlign: "center",
+          justifyContent: "center",
+          marginTop: "50px",
+        }}
+      >
+        Loading...
+      </div>
+    );
   }
 
   return (
